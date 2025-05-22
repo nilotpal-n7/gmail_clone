@@ -1,0 +1,177 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --light-gray: #f8f9fa;
+  --middle-gray: #e9ecef;
+  --dark-gray: #495057;
+  --light-blue: #d0ebff;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f6f8fc;
+  overflow: hidden;
+}
+
+section {
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "header header header" "nav main-content sidebar" "nav main-content sidebar";
+  grid-template-columns: 265px 4fr 60px;
+  grid-template-rows: 70px 1fr;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-area: header;
+}
+
+.left-header {
+  flex: 2;
+  padding: 10px;
+  gap: 20px;
+  justify-content: start;
+}
+
+.middle-header {
+  flex: 3;
+}
+
+.right-header {
+  flex: 1;
+  padding: 10px;
+  gap: 20px;
+  justify-content: end;
+}
+
+.icon {
+  height: 20px;
+  cursor: pointer;
+}
+
+.gmail-icon {
+  height: 30px;
+  cursor: pointer;
+}
+
+.gmail-text {
+  font-size: 20px;
+  cursor: pointer;
+  letter-spacing: 0.7px;
+  color: var(--dark-gray);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: var(--middle-gray);
+  flex: 1;
+}
+
+.search input {
+  border: none;
+  outline: none;
+  background-color: var(--middle-gray);
+  padding: 5px;
+  font-size: 18px;
+  flex: 1;
+}
+
+nav {
+  grid-area: nav;
+  padding-top: 30px;
+  width: 200px;
+}
+
+.nav-container {
+  display: flex;
+  height: 50%;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.nav-top {
+  padding-left: 10px;
+}
+
+.nav-top span {
+  background-color: var(--light-blue);
+  padding: 18px 20px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.nav-top img {
+  height: 16px;
+  padding-right: 20px;
+}
+
+.nav-middle ul li {
+  font-size: 14px;
+  list-style: none;
+  margin-left: 4px;
+  margin-bottom: 4px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  letter-spacing: 1px;
+}
+
+.nav-middle ul li:hover {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #e7f5ff;
+}
+
+.nav-middle a {
+  display: flex;
+  gap: 12px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: var(--dark-gray);
+}
+
+.nav-middle ul li:first-child {
+  display: flex;
+  justify-content: space-between;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #e7f5ff;
+  margin-right: 8px;
+  font-weight: 600;
+  color: #000;
+}
+
+.nav-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--dark-gray);
+  padding-left: 20px;
+  font-weight: bold;
+}
+
+.nav-bottom span {
+
+}
