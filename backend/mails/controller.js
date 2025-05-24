@@ -59,17 +59,21 @@ export const starMail = async (req, res) => {
   }
 };
 
-export async function markAsRead(req, res) {
+export const markAsRead = async (req, res) => {
+  const { id } = req.params;
   try {
-    const { id } = req.params;
-    const mail = await Mail.findById(id);
+    // Find the mail by ID and mark it as read
+    const mail = await MailModel.findOne({
+      _id: id,
+    })
+    console.log("read/mail",mail)
+
     if (!mail) return res.status(404).json({ message: "Mail not found" });
+    mail.status = 'seen'
+    await mail.save()
+    res.status(201).json(mail);
 
-    mail.status = "seen";
-    await mail.save();
-
-    res.json({ message: "Mail marked as read", mail });
-  } catch (err) {
-    res.status(500).json({ message: "Failed to mark as read", error: err.message });
+  } catch (error) {
+    res.status(500).json({ message: "Error starring mail", error });
   }
-}
+};

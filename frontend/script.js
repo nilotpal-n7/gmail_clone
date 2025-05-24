@@ -50,16 +50,12 @@ function renderMails() {
         <button onclick="deleteMail('${mail._id}')">
           <img src="icons/trash-solid.svg" alt="delete" class="icon">
         </button>
-        <button type="button" onclick="markAsRead('${mail._id}')">
         <span>${mail.sender}</span>
-        </button>
       </div>
       <button type="button" onclick="markAsRead('${mail._id}')">
         <div class="messages-content">${mail.body}</div>
       </button>
-      <button type="button" onclick="markAsRead('${mail._id}')">
       <div class="messages-date">${formatMailDate(mail.createdAt)}</div>
-      </button>
     `;
     list.appendChild(div);
   });
@@ -87,14 +83,13 @@ async function sendMail(event) {
   event.preventDefault();
   const sender = document.getElementById("sender").value;
   const reciever = 'nilotpal_n7'
-  const subject = document.getElementById("subject").value;
   const message = document.getElementById("message").value;
   const type = currentCategory;
 
   const res = await fetch(`${API_BASE}/create`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ sender, reciever, subject, body: message, type }),
+    body: JSON.stringify({ sender, reciever, body: message, type }),
   });
   const newMail = await res.json();
   allMails.unshift(newMail);
@@ -133,12 +128,15 @@ async function markAsRead(id) {
   mail.status = "seen";
   const mailDiv = document.getElementById(`mail-${id}`);
   if (mailDiv) mailDiv.classList.remove("unread");
-  updateUnreadCounts();
 
   const res = await fetch(`${API_BASE}/read/${id}`, { method: "POST" });
   if (!res.ok) {
     console.error("Failed to mark mail as read.");
+    mail.status = "unseen";
+    if (mailDiv) mailDiv.classList.add("unread");
   }
+
+  updateUnreadCounts();
 }
 
 
