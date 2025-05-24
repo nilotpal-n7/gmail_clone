@@ -11,7 +11,7 @@ export const createMail = async (req, res) => {
       body,
     });
 
-    mail.save();
+    await mail.save();
     res.status(201).json(mail);
   } catch (error) {
     res.status(500).json({ message: "Error creating mail", error });
