@@ -18,9 +18,9 @@ body {
 }
 
 section {
-  height: 100vh;
+  height: 100%;
   display: grid;
-  grid-template-areas: "header header header" "nav main-content sidebar" "nav main-content sidebar";
+  grid-template-areas: "header header" "nav main-content" "nav main-content";
   grid-template-columns: 265px 4fr 60px;
   grid-template-rows: 70px 1fr;
 }
@@ -102,8 +102,8 @@ nav {
 
 .nav-container {
   display: flex;
-  height: 50%;
   flex-direction: column;
+  height: 80vh;
   gap: 40px;
 }
 
@@ -119,6 +119,12 @@ nav {
   font-weight: 500;
   cursor: pointer;
   font-size: 16px;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 .nav-top img {
@@ -170,8 +176,104 @@ nav {
   color: var(--dark-gray);
   padding-left: 20px;
   font-weight: bold;
+  padding-right: 20px;
 }
 
-.nav-bottom span {
+.main-container {
+  flex: 1;
+  height: 80vh;
+  margin-top: 5px;
+  border-radius: 20px;
+  background-color: #fff;
+  overflow: hidden;
+  margin-right: 20px;
+}
 
+.message-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
+  color: var(--dark-gray);
+  border-bottom: 0.8px solid #ced4da;
+}
+
+.category {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.messages-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.messages {
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  gap: 20px;
+  border-bottom: 0.8px solid #ced4da;
+  color: var(--dark-gray);
+}
+
+.messages:hover {
+  cursor: pointer;
+  box-shadow: 0px 1px 4px 0.2px rgba(0, 0, 0, 0.2);
+}
+
+.why {
+  display: flex;
+}
+
+.modal {
+  position: fixed;
+  top: 20%;
+  left: 30%;
+  right: 30%;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  width: 300px;
+}
+
+.modal input {
+  width: 250px;
+  height: 30px;
+}
+
+#message {
+  height: 100px;
+  width: 250px;
+}
+
+.hidden {
+  display: none;
+}
+
+.unread-count {
+  color: #d6336c;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.unread {
+  font-weight: bold;
+  background-color: #f1f5ff;
+}
+
+.category.active {
+  color: red;
+  border-bottom: 2px solid red;
+}
+
+.messages-date {
+  font-size: 13px;
+  color: gray;
 }

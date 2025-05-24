@@ -24,7 +24,7 @@ const MailSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ["seen", "unseen"],
-    default: "seen",
+    default: "unseen",
   },
   starred: {
     type: Boolean,

@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gmail Clone</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <title>Gmail</title>
 </head>
 <body>
-  <sextion>
     <header class="header">
       <div class="left-header flex">
         <img class="icon" src="icons/bars-solid.svg" alt="bars-solid">
@@ -29,65 +27,107 @@
         <img class="icon" src="icons/gear-solid.svg" alt="settings">
       </div>
     </header>
-  </section>
-  <nav>
-    <div class="nav-container">
-      <div class="nav-top">
-        <span>
-          <img src="icons/pencil-solid.svg" alt="pencil" class="hover icon">
-          Compose
-        </span>
+    <div class="why">
+    <nav>
+      <div class="nav-container">
+        <div class="nav-top">
+          <button type="button" onclick="showMailForm()">
+          <span>
+            <img src="icons/pencil-solid.svg" alt="pencil" class="hover icon">
+            Compose
+          </span>
+          </button>
+        </div>
+        <div class="nav-middle">
+          <ul>
+            <li>
+              <a href="#">
+                <img src="icons/inbox-solid.svg" alt="inbox" class="icon">
+                Inbox
+              </a>
+              <span id="inbox-count"></span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="icons/star-regular.svg" alt="inbox" class="icon">
+                Starred
+              </a>
+              <span id="starred-count"></span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="icons/clock-regular.svg" alt="inbox" class="icon">
+                Snoozed
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="icons/paper-plane-solid.svg" alt="inbox" class="icon">
+                Sent
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="icons/file-regular.svg" alt="inbox" class="icon">
+                Draft
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="icons/angle-down-solid.svg" alt="inbox" class="icon">
+                More
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-bottom">
+          <span>Labels</span>
+          <img alt="add" class="hover icon" src="icons/plus-solid.svg"/>
+        </div>
       </div>
-      <div class="nav-middle">
-        <ul>
-          <li>
-            <a href="#">
-              <ion-icon name="image-outline"></ion-icon>
-              Inbox
-            </a>
-            <span>4</span>
-          </li>
-          <li>
-            <a href="#">
-              <ion-icon name="star-outline"></ion-icon>
-              Starred
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ion-icon name="time-outline"></ion-icon>
-              Snoozed
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ion-icon name="send-outline"></ion-icon>
-              Sent
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ion-icon name="document-outline"></ion-icon>
-              Draft
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <ion-icon name="chevron-down-outline"></ion-icon>
-              More
-            </a>
-          </li>
-        </ul>
+    </nav>
+    <main class="main-container">
+      <div class="message-top">
+        <div class="category" data-type="primary">
+          Primary <span class="unread-count" id="primary-count"></span>
+        </div>
+        <div class="category" data-type="promotions">
+          Promotions <span class="unread-count" id="promotions-count"></span>
+        </div>
+        <div class="category" data-type="social">
+          Social <span class="unread-count" id="social-count"></span>
+        </div>
+        <div class="category" data-type="updates">
+          Updates <span class="unread-count" id="updates-count"></span>
+        </div>
       </div>
-      <div class="nav-bottom">
-        <span>Labels</span>
-        <img alt="add" class="hover icon" src="icons/plus-solid.svg"/>
+      <div id="mail-form" class="modal hidden">
+        <form onsubmit="sendMail(event)">
+          <h3>Compose Mail</h3>
+          <input type="text" id="sender" placeholder="Sender" required/>
+          <input type="text" id="subject" placeholder="Subject" required />
+          <textarea id="message" placeholder="Your message..." required></textarea>
+          <button type="submit">Send</button>
+          <button type="button" onclick="hideMailForm()">Cancel</button>
+        </form>
       </div>
+      <div id="mail-list" class="messages-area">
+         <div class="messages">
+          <div class="messages-left">
+            <img src="icons/star-regular.svg" alt="star" class="icon">
+            <img src="icons/trash-solid.svg" alt="star" class="icon">
+            <span>Twitter</span>
+          </div>
+          <button type="button" onclick="">
+          <div class="messages-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </div>
+          </button>
+          <div class="messages-date">Dec,28</div>
+        </div>
+      </div>
+    </main>
     </div>
-  </nav>
-  <main class="main-container">
-
-  </main>
   <script src="script.js"></script>
 </body>
 </html>
