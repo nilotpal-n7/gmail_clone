@@ -14,7 +14,7 @@ app.use(cors("*"));
 app.use(express.json());
 
 // Routes
-app.use("/api/mails", router);
+app.use("/api/mail", router);
 
 const PORT = 8000;
 

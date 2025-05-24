@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8000/api/mails";
+const API_BASE = "http://localhost:8000/api/mail";
 let allMails = [];
 let currentCategory = "primary";
 
