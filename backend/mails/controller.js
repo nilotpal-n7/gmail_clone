@@ -35,7 +35,8 @@ export const deleteMail = async (req, res) => {
     await MailModel.deleteOne({
       _id: id,
     })
-
+    
+    res.status(500).json({ message: "Mail deleted", error });
   } catch (error) {
     res.status(500).json({ message: "Error deleting mail", error });
   }
